@@ -1,0 +1,191 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+@layer base {
+
+  :root {
+    --background: #286578;
+    --foreground: #f6f7ff;
+
+    --card: #52677D26;
+    --card-foreground: #000000B2;
+
+    --popover: #ffffff;
+    --popover-foreground: #020817;
+
+    --primary: #286578;
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #def7ff;
+    --secondary-foreground: #0F172A;
+
+    --muted: #BDC4D44D;
+    --muted-foreground: #64748B;
+
+    --accent: #F1F5F9;
+    --accent-foreground: #0F172A;
+
+    --destructive: #EF4444;
+    --destructive-foreground: #F8FAFC;
+
+    --border: #286578;
+    --input: #E2E8F0;
+    --ring: #020817;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: #FAFAFA;
+
+    --sidebar-foreground: #4c91acaf;
+
+    --sidebar-primary: #ffffff1a;
+
+    --sidebar-primary-foreground: #FAFAFA;
+
+    --sidebar-accent: #F4F4F5;
+
+    --sidebar-accent-foreground: #18181B;
+
+    --sidebar-border: #E5E7EB;
+
+    --sidebar-ring: #3B82F6;
+  }
+
+  .dark {
+    --background: #BDC4D480;
+    --foreground: #F8FAFC;
+
+    --card: #020817;
+    --card-foreground: #F8FAFC;
+
+    --popover: #020817;
+    --popover-foreground: #F8FAFC;
+
+    --primary: #52677D;
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #1E293B;
+    --secondary-foreground: #000000B2;
+
+    --muted: #1E293B;
+    --muted-foreground: #94A3B8;
+
+    --accent: #1E293B;
+    --accent-foreground: #F8FAFC;
+
+    --destructive: #7F1D1D;
+    --destructive-foreground: #F8FAFC;
+
+    --border: #1E293B;
+    --input: #1E293B;
+    --ring: #CBD5E1;
+    --sidebar-background: #18181B;
+    --sidebar-foreground: #F4F4F5;
+    --sidebar-primary: #2563EB;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #27272A;
+    --sidebar-accent-foreground: #F4F4F5;
+    --sidebar-border: #27272A;
+    --sidebar-ring: #3B82F6;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+}
+
+.custom-input .MuiOutlinedInput-root fieldset {
+  border-color: var(--border);
+}
+
+.custom-input .MuiOutlinedInput-root:hover fieldset {
+  border-color: var(--border);
+}
+
+.custom-input .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: var(--primary);
+}
+
+/* sweetalert2 custom buttons fix */
+.swal2-confirm-custom {
+  background-color: var(--primary) !important;
+  color: #fff !important;
+}
+
+.swal2-cancel-custom {
+  background-color: var(--muted) !important;
+  color: #000 !important;
+}
+
+
+
+.hide-scrollbar {
+  overflow-y: auto;
+  /* enable scroll */
+  -ms-overflow-style: none !important;
+  /* IE & Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  /* Chrome, Safari */
+}
+
+.filter-sidebar {
+  position: fixed;
+  right: 0;
+  z-index: 9;
+  top: 70px;
+}
+
+.health-table-header-style {
+  background-color: #286578 !important;
+  padding: 4px 8px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+  .filter-sidebar {
+    position: fixed;
+    right: -12px;
+    z-index: 9;
+    top: 48px;
+  }
+
+}

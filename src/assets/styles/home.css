@@ -1,0 +1,91 @@
+.space {
+  padding-top: 80px !important;
+}
+
+.spaceBottom {
+  padding-bottom: 80px !important;
+}
+
+@media screen and (max-width:1024px) {
+  .space {
+    padding-top: 60px !important;
+  }
+
+  .spaceBottom {
+    padding-bottom: 60px !important;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .space {
+    padding-top: 40px !important;
+  }
+
+  .spaceBottom {
+    padding-bottom: 40px !important;
+  }
+}
+
+.Violation-icon {
+  background-color: #ffffff;
+  padding: 8px;
+  border-radius: 100%
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-size: 28px;
+  color: white;
+}
+
+/* Hide default checkbox */
+.checkbox-container input {
+  display: none;
+}
+
+/* Custom box */
+.checkmark {
+  width: 40px;
+  height: 40px;
+  border: 3px solid white;
+  border-radius: 8px;
+  /* Rounded corners */
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Checked state */
+.checkbox-container input:checked+.checkmark {
+  background-color: white;
+}
+
+.checkbox-container input:checked+.checkmark::after {
+  content: "✔";
+  font-size: 22px;
+  color: #4f5df0;
+  font-weight: bold;
+}
+
+.driver-card-parent {
+  height: 417px;
+  overflow: hidden;
+}
+
+.driver-card-parent:hover .driver-card-content {
+  z-index: 991;
+  height: 100%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.driver-card-content {
+  transition: all .5s;
+}
+

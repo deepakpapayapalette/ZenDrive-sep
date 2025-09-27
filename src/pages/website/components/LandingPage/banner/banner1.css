@@ -1,0 +1,28 @@
+:root {
+  --primary: #286578;
+}
+
+.check-btn {
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.check-btn:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .check-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+.hero-slick-slider .slick-dots li.slick-active button:before {
+  color: var(--primary);
+  font-size: 12px;
+  opacity: 1 !important;
+}
