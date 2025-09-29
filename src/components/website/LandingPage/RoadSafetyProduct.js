@@ -1,9 +1,9 @@
 import React from 'react'
 import Carousel from "react-multi-carousel";
-import product1 from '../../../../assets/images/website/products/p1.png'
-import product2 from '../../../../assets/images/website/products/p2.png'
-import product3 from '../../../../assets/images/website/products/p3.png'
-import product4 from '../../../../assets/images/website/products/p4.png'
+import product1 from '../../../assets/images/website/products/p1.png'
+import product2 from '../../../assets/images/website/products/p2.png'
+import product3 from '../../../assets/images/website/products/p3.png'
+import product4 from '../../../assets/images/website/products/p4.png'
 const RoadSafetyProduct = () => {
   const responsive = {
     superLargeDesktop: {
@@ -13,16 +13,17 @@ const RoadSafetyProduct = () => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      partialVisibilityGutter: 20
+      partialVisibilityGutter: 40
     },
     tablet: {
       breakpoint: { max: 1024, min: 767 },
-      items: 2
+      items: 2,
+      showDots: true,
     },
     mobile: {
       breakpoint: { max: 767, min: 0 },
       items: 1,
-
+      showDots: true,
     }
   };
   const motorcycleGear = [
@@ -62,7 +63,7 @@ const RoadSafetyProduct = () => {
 
   return (
     <>
-      <section>
+      <section className='space-top relative'>
         <div className="container">
           <h2 className="text-3xl sm:text-4xl lg:text-4xl font-semibold text-[var(--primary)] mb-6">
             Road Safety Products
@@ -79,7 +80,7 @@ const RoadSafetyProduct = () => {
                 //additionalTransfrom={-20}
                 //  pauseOnHover={false}
                 //  centerMode={false}
-                containerClass=""
+                containerClass="pb-5"
                 itemClass="pe-md-3 px-1"
                 showDots={false}
                 infinite={true}
@@ -89,9 +90,9 @@ const RoadSafetyProduct = () => {
               >
                 {motorcycleGear.map((item, index) => (
                   <div className="max-w-sm mx-auto" key={index}>
-                    <div className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div className="bg-white rounded-xl  border border-gray-300 border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
                       {/* Product Image Container */}
-                      <div className="relative bg-gray-50 p-6">
+                      <div className="relative bg-gray-50 p-4">
                         <div className="aspect-square relative">
                           {/* Simulated gloves image with blue and black styling */}
                           <div className="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center relative overflow-hidden">
@@ -129,7 +130,7 @@ const RoadSafetyProduct = () => {
                         </div>
 
                         {/* Star Rating (placeholder) */}
-                        <div className="flex items-center mt-3 space-x-1">
+                        {/* <div className="flex items-center mt-3 space-x-1">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <svg
                               key={star}
@@ -140,7 +141,7 @@ const RoadSafetyProduct = () => {
                             </svg>
                           ))}
                           <span className="text-sm text-gray-500 ml-2">(4.5)</span>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

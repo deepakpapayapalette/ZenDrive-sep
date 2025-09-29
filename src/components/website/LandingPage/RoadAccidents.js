@@ -1,6 +1,6 @@
 
 import React from "react";
-import accidentImg from "../../../../assets/images/website/road-accident.png";
+import accidentImg from "../../../assets/images/website/road-accident.png";
 
 
 const RoadAccidents = () => {
@@ -41,12 +41,14 @@ const RoadAccidents = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {stats.map((item, index) => (
                 <div className="stat-card  gap-2 p-6  relative overflow-hidden shadow-lg bg-white" key={index}>
-                  <div className="flex  flex-col gap-4 ">
-                    <span className="text-2xl">{item.icon}</span>
-                    <h3 className="font-semibold text-lg ">{item.title}</h3>
-                    <p className="text-gray-600 text-sm">{item.value}</p>
+                  <div className="flex   gap-3 mb-3 ">
+                    <div className="text-2xl p-3 bg-gray-100 rounded-full w-[46px] h-[46px] flex justify-center items-center ">
+                      {item.icon}
+                    </div>
+                    <h3 className="font-semibold text-2xl ">{item.title}</h3>
                   </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-teal-600 rounded-b-2xl"></div>
+                  <p className="text-gray-600 text-lg">{item.value}</p>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-[var(--primary)] rounded-b-2xl"></div>
                 </div>
               ))}
             </div>

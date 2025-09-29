@@ -1,5 +1,6 @@
 import React from 'react';
-import truckInteriorImage from '../../../../assets/images/website/Cab-Truck.png'
+import truckInteriorImage from '../../../assets/images/website/Cab-Truck.png'
+
 // Arrow Icon Component
 const ArrowRight = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -32,7 +33,7 @@ export default function ZandriveSafeIntro() {
             </div>
 
             {/* Read More Button */}
-            <button className="bg-[var(--primary)] hover:bg-[var(--primary)]/90 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2 group">
+            <button className="bg-[var(--primary)] hover:bg-[var(--primary2)] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center space-x-2 group">
               <span>Read More</span>
               <ArrowRight />
             </button>

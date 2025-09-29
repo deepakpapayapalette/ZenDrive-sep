@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../../../assets/images/website/SaveLives.png'
+import image from '../../../assets/images/website/SaveLives.png'
 import { Shield } from "lucide-react";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 export default function GoodSamaritanSection() {
@@ -14,7 +14,7 @@ export default function GoodSamaritanSection() {
           <p className="text-base sm:text-lg text-gray-700">
             Don't just watch a road accident happen – stop, help, and make a difference. Your timely support can save the life of a victim.
           </p>
-        </div> 
+        </div>
         {/* Main Content Grid */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div>
@@ -77,7 +77,7 @@ export default function GoodSamaritanSection() {
             <div className="relative rounded-xl overflow-hidden shadow-lg">
               {/* Placeholder image with gradient overlay */}
               <div className="relative">
-                <img src={image} alt="" />
+                <img src={image} alt="" className='w-full h-auto' />
               </div>
               <div className="absolute bottom-0 left-0 w-full bg-black/60 backdrop-blur-sm border-t border-gray-700 p-4 sm:p-6">
                 <div className="flex items-start space-x-3 text-white items-center">

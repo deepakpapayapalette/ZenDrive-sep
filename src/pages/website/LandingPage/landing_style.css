@@ -1,8 +1,13 @@
 :root {
-  --primary: #286578;
-  --them-bg2: #eaf0f2;
+  --primary: #286578 ;
+  --primary2: #164250 ;
+  --them-bg2: #eaf0f2 ;
+  --p1: #4d4d4d ;
 }
 
+p {
+  font-size: 18px;
+}
 
 .space-top {
   margin-top: 100px !important;
@@ -74,8 +79,18 @@
   border-radius: 10px;
 }
 
-.container .slick-dots li.slick-active button:before {
+:is(section, .container) .slick-dots li.slick-active button:before {
   color: var(--primary);
   font-size: 12px;
   opacity: 1 !important;
+}
+
+:is(section, .container) .slick-dots li button:before {
+  color: var(--primary);
+  font-size: 12px;
+}
+
+:is(section, .container) .slick-dots li:hover button:before {
+  color: var(--primary);
+  font-size: 12px;
 }

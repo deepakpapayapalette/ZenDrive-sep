@@ -1,5 +1,5 @@
 import React from 'react'
-import image from "../../../../assets/images/website/d1.png"
+import image from "../../../assets/images/website/d1.png"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

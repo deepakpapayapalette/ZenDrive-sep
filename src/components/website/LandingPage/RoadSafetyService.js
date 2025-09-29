@@ -1,7 +1,7 @@
 import React from 'react';
-import img1 from '../../../../assets/images/website/feet-owners.png';
-import img2 from '../../../../assets/images/website/img2.png';
-import img3 from '../../../../assets/images/website/img3.png';
+import img1 from '../../../assets/images/website/feet-owners.png';
+import img2 from '../../../assets/images/website/img2.png';
+import img3 from '../../../assets/images/website/img3.png';
 
 
 export default function RoadSafetyService() {
@@ -28,12 +28,12 @@ export default function RoadSafetyService() {
                 Message for Fleet Owners/<br />
                 Transport Corporations
               </h3>
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+              <p className="text-base sm:text-lg  text-gray-700 leading-relaxed">
                 Fleet owners and transport operations must ensure healthy drivers, well-maintained vehicles, and careful driving — a <span className="font-semibold">moral duty to make Indian roads safer.</span>
               </p>
             </div>
 
-            <div className="z-10 relative hidden lg:block">
+            <div className="z-10 relative ">
               <img src={img1} alt="Fleet Owners" className="w-full h-auto" />
             </div>
           </div>
@@ -48,13 +48,13 @@ export default function RoadSafetyService() {
                 Message for Schools/<br />
                 Educational Institutions
               </h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+              <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-6">
                 Ensure student safety by monitoring school transport drivers and maintaining vehicles to the highest standards.
               </p>
             </div>
 
             {/* SUV/Jeep illustration */}
-            <div className="absolute  bottom-0 right-0">
+            <div className="md:absolute bottom-0 right-0">
               <img src={img2} alt="Fleet Owners" className="w-[240px] h-auto" />
             </div>
           </div>
@@ -66,13 +66,13 @@ export default function RoadSafetyService() {
                 Message for Corporate Offices/<br />
                 Organizations
               </h3>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-6">
+              <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-6">
                 Keep an eye on how your employees drive. Raise their awareness about safe driving and help them become a <span className="font-semibold">ROAD CHAMPION</span>.
               </p>
             </div>
 
             {/* Luxury Car illustration */}
-            <div className="absolute bottom-0 right-0">
+            <div className="md:absolute bottom-0 right-0">
               <img src={img3} alt="Fleet Owners" className="w-[240px] h-auto" />
             </div>
           </div>

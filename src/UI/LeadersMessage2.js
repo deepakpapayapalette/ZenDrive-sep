@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import cmImage from '../../../../assets/images/website/cm-image.png'
 
 // Audio control icons
 const PlayIcon = () => (
@@ -30,12 +29,23 @@ const MoreIcon = () => (
   </svg>
 );
 
-export default function LeadersMessageRoadSafety() {
+export default function LeadersMessage2() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(1232); // 20:32 in seconds
+  const [duration, setDuration] = useState(0);
   const [activeSlide, setActiveSlide] = useState(0);
   const audioRef = useRef(null);
+
+  // ADD YOUR AUDIO FILE PATH HERE
+  // Option 1: Import from your project folder
+  // import audioFile from './path/to/your/audio.mp3';
+  // const audioSrc = audioFile;
+
+  // Option 2: Use a public URL
+  const audioSrc = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"; // Replace with your audio URL
+
+  // Option 3: Use from public folder
+  // const audioSrc = "/audio/leaders-message.mp3"; // Place file in public/audio/ folder
 
   // Format time display
   const formatTime = (seconds) => {
@@ -46,37 +56,52 @@ export default function LeadersMessageRoadSafety() {
 
   // Toggle play/pause
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    // In a real implementation, you'd control actual audio playback here
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  // Update time as audio plays
+  const handleTimeUpdate = () => {
+    if (audioRef.current) {
+      setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  // Set duration when audio loads
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
+      setDuration(audioRef.current.duration);
+    }
+  };
+
+  // Handle audio end
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setCurrentTime(0);
   };
 
   // Progress bar click handler
   const handleProgressClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const newTime = (clickX / rect.width) * duration;
-    setCurrentTime(newTime);
+    if (audioRef.current) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const newTime = (clickX / rect.width) * duration;
+      audioRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
   };
 
-  // Simulate audio progress (for demo purposes)
-  useEffect(() => {
-    let interval;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setCurrentTime(prev => {
-          if (prev >= duration) {
-            setIsPlaying(false);
-            return 0;
-          }
-          return prev + 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, duration]);
+  // Remove the simulation effect
+  // Audio progress is now handled by the actual audio element
 
   // Placeholder image - replace with actual CM image
-
+  const cmImage = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80";
 
   const progress = (currentTime / duration) * 100;
 
@@ -133,6 +158,16 @@ export default function LeadersMessageRoadSafety() {
               <h4 className="text-lg font-semibold text-[var(--primary)] mb-4">
                 Listen Audio
               </h4>
+
+              {/* Hidden Audio Element */}
+              <audio
+                ref={audioRef}
+                src={audioSrc}
+                onTimeUpdate={handleTimeUpdate}
+                onLoadedMetadata={handleLoadedMetadata}
+                onEnded={handleEnded}
+                preload="metadata"
+              />
 
               {/* Progress Bar */}
               <div

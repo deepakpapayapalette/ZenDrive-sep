@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import banner1 from "../../../../../assets/images/website/banner1.png";
-import banner2 from "../../../../../assets/images/website/banner2.png";
-import banner3 from "../../../../../assets/images/website/banner3.png";
+import banner1 from "../../../assets/images/website/banner1.png";
+import banner2 from "../../../assets/images/website/banner2.png";
+import banner3 from "../../../assets/images/website/banner3.png";
 
 
 const Banner = () => {
@@ -65,7 +65,7 @@ const Banner = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
                 <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-24 text-white">
                   <div className="max-w-2xl">
-                    <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
+                    <h1 className="text-3xl md:text-6xl font-bold leading-tight">
                       Healthy Driver, Safe Journey
                     </h1>
                     <p className="text-base md:text-lg mt-4 md:mt-6 leading-relaxed">
