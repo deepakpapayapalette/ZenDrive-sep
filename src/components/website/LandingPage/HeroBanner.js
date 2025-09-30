@@ -65,7 +65,7 @@ const Banner = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
                 <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-24 text-white">
                   <div className="max-w-2xl">
-                    <h1 className="text-3xl md:text-6xl font-bold leading-tight">
+                    <h1 className="text-3xl lg:text-6xl font-bold leading-tight">
                       Healthy Driver, Safe Journey
                     </h1>
                     <p className="text-base md:text-lg mt-4 md:mt-6 leading-relaxed">
@@ -79,7 +79,7 @@ const Banner = () => {
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 w-full bg-black/60 backdrop-blur-sm border-t border-gray-700">
-                  <div className="grid grid-cols-1 md:grid-cols-3 text-center text-white py-6 px-4 md:px-16">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 text-center text-white py-6 px-4 md:px-16">
                     <div>
                       <h2 className="text-2xl font-bold">12%</h2>
                       <p className="text-sm md:text-base text-gray-200 mt-1">

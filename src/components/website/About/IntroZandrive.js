@@ -8,7 +8,7 @@ const IntroZandrive = () => {
       <div className="container">
         <div className="grid md:grid-cols-5 grid-cols-1  gap-6">
           {/* Left Content */}
-          <div className="col-span-3">
+          <div className="col-span-3 order-2 md:order-1 " >
             <h2 className="text-2xl md:text-4xl font-semibold text-primary mb-4">
               Introducing ZANDRIVE SAFE
             </h2>
@@ -27,11 +27,11 @@ const IntroZandrive = () => {
           </div>
 
           {/* Right Image */}
-          <div className="md:col-span-2 overflow-hidden rounded-lg flex lg:justify-end">
+          <div className="md:col-span-2 overflow-hidden rounded-lg flex lg:justify-end order-1 md:order2 w-full">
             <img
               src={image1}
               alt="Zandrive Safe Dashboard"
-              className="max-w-full h-auto rounded-lg "
+              className="w-full h-auto rounded-lg "
             />
           </div>
         </div>

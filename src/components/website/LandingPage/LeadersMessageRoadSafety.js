@@ -170,7 +170,7 @@ export default function LeadersMessageRoadSafety() {
   ];
 
   return (
-    <section className="space-top relative">
+    <section className="space-top relative ">
       <div className="container mx-auto ">
         {/* Header */}
         <div className="mb-8">
@@ -184,9 +184,9 @@ export default function LeadersMessageRoadSafety() {
           {roadSafetyMessages.map((message, index) => (
             // <LeadersMessage key={message.id} message={message} />
             <div key={index + 1}>
-              <div className="grid  md:grid-cols-5 grid-cols-1  gap-8 lg:gap-12 items-start ">
+              <div className="grid  lg:grid-cols-5 grid-cols-1  gap-8 lg:gap-12 items-start ">
                 {/* Left Column - Image */}
-                <div className="relative md:col-span-2">
+                <div className="relative lg:col-span-2">
                   <div className="relative rounded-lg overflow-hidden">
                     <img
                       src={message.image}
@@ -213,7 +213,7 @@ export default function LeadersMessageRoadSafety() {
                 </div>
 
                 {/* Right Column - Content */}
-                <div className='md:col-span-3'>
+                <div className='lg:col-span-3'>
                   <h3 className="text-2xl sm:text-3xl font-semibold text-[var(--primary)] mb-6">
                     {message.title}
                   </h3>

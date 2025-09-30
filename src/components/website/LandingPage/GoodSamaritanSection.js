@@ -8,7 +8,7 @@ export default function GoodSamaritanSection() {
       <div className="container mx-auto">
         {/* Header Section */}
         <div className="mb-8 lg:mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-semibold text-[var(--primary)] mb-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-semibold text-primary mb-2">
             Be a Good Samaritan – Save Lives!
           </h2>
           <p className="text-base sm:text-lg text-gray-700">

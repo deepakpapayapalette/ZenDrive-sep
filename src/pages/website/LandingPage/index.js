@@ -11,6 +11,9 @@ import ZandriveSafeIntro from '../../../components/website/LandingPage/ZandriveS
 import LeadersMessageRoadSafety from '../../../components/website/LandingPage/LeadersMessageRoadSafety'
 import RoadSafetyProduct from '../../../components/website/LandingPage/RoadSafetyProduct'
 import OurSuperheroes from '../../../components/website/LandingPage/OurSuperheroes'
+import TakeTheLife from '../../../components/website/LandingPage/TakeTheLife'
+
+import HeroAmongUs from '../../../components/website/LandingPage/HeroAmongUs'
 
 const LandingPage = () => {
   return (
@@ -18,8 +21,10 @@ const LandingPage = () => {
       <Banner />
       <RoadAccidents />
       <GoodSamaritanSection />
-      <RoadSafetyService />
       <OurSuperheroes />
+      <TakeTheLife />
+      <RoadSafetyService />
+      {/* <HeroAmongUs /> */}
       <SchoolRideSafetyBanner />
       <RealTimeDashobard />
       <ZandriveSafeIntro />

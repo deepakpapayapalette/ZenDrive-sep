@@ -26,7 +26,7 @@ const MissionVision = () => {
           <div>
 
             <div className=" flex flex-col justify-start">
-              <h2 className="text-3xl sm:text-4xl lg:text-4xl font-semibold text-primary mb-6">
+              <h2 className="text-2xl md:text-4xl font-semibold text-primary mb-4">
                 Our Mission/Vision
               </h2>
 
@@ -35,8 +35,8 @@ const MissionVision = () => {
               </p>
             </div>
 
-            <div className="xl:absolute  bg-white p-6 sm:p-8 rounded-xl shadow-lg xl:left-[40%] xl:bottom-[-6%] ">
-              <h3 className="text-2xl sm:text-3xl font-semibold text-primary mb-4">
+            <div className="xl:absolute  bg-white p-5 sm:p-8 rounded-xl theme-shadow xl:left-[40%] xl:bottom-[-6%] mt-5 mt-md-0">
+              <h3 className="text-2xl md:text-4xl font-semibold text-primary mb-4">
                 Our Vision
               </h3>
               <p className="text-gray-600  leading-relaxed">

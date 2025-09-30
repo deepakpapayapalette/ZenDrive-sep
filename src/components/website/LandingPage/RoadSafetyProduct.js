@@ -80,16 +80,16 @@ const RoadSafetyProduct = () => {
                 //additionalTransfrom={-20}
                 //  pauseOnHover={false}
                 //  centerMode={false}
-                containerClass="pb-5"
-                itemClass="pe-md-3 px-1"
+                containerClass=""
+                itemClass="sm:pe-3 "
                 showDots={false}
                 infinite={true}
                 renderDotsOutside={true}
                 partialVisible={true}
-                className='ps-0 pb-3'
+                className='ps-1 pb-3'
               >
                 {motorcycleGear.map((item, index) => (
-                  <div className="max-w-sm mx-auto" key={index}>
+                  <div className="w-full mx-auto" key={index}>
                     <div className="bg-white rounded-xl  border border-gray-300 border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300">
                       {/* Product Image Container */}
                       <div className="relative bg-gray-50 p-4">

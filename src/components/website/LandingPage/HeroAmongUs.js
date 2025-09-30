@@ -1,9 +1,29 @@
 import React from 'react'
+import HeroAmongUsCard from '../../../UI/HeroAmongUsCard'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import OurSuperheroesCard from '../../../UI/AccidentReportCard';
 import image from "../../../assets/images/website/superhero-card.png"
-const OurSuperheroes = () => {
+
+const HeroAmongUs = () => {
+  const HeroAmondUsData = [
+    {
+      id: 1,
+      img: image,
+    },
+    {
+      id: 2,
+      img: image,
+    },
+    {
+      id: 3,
+      img: image,
+    },
+    {
+      id: 4,
+      img: image,
+    },
+  ];
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -25,36 +45,15 @@ const OurSuperheroes = () => {
       showDots: true,
     }
   };
-  const AccidentReportData = [
-    {
-      id: 1,
-      img: image,
-    },
-    {
-      id: 2,
-      img: image,
-    },
-    {
-      id: 3,
-      img: image,
-    },
-    {
-      id: 4,
-      img: image,
-    }
-  ]
   return (
     <>
-      <section className="space-top">
+      <section className="space-top ">
         <div className="container mx-auto">
           {/* Header Section */}
-          <div className="mb-12">
+          <div className="mb-5">
             <h2 className="text-3xl sm:text-4xl lg:text-4xl font-semibold text-[var(--primary)] mb-4">
               Heroes Among Us(Our Superheroes) – Be a Life Saver!
             </h2>
-            <p className="text-base sm:text-lg text-[var(--p2)] text-gray-700">
-              Every second counts. Step in, help, and make a difference—your actions can save lives and inspire a safer, compassionate community
-            </p>
           </div>
 
           <Carousel
@@ -75,24 +74,18 @@ const OurSuperheroes = () => {
             partialVisible={true}
             className='ps-1 pb-3'
           >
-            {AccidentReportData.map((item) => (
+            {HeroAmondUsData.map((item) => (
               <div className="item" key={item.id}>
-                <div className="card h-100">
-                  <div className="card-body">
-                    <OurSuperheroesCard data={item} />
-                  </div>
+                <div className="card-body">
+                  <HeroAmongUsCard user={item} />
                 </div>
               </div>
             ))}
-
-
           </Carousel>
-
         </div>
       </section>
     </>
   )
 }
 
-export default OurSuperheroes
-
+export default HeroAmongUs
