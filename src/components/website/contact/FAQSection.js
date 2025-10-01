@@ -59,27 +59,29 @@ const FAQSection = () => {
               onChange={handleChange(`panel${index}`)}
               sx={{
                 background: 'var(--primary)',
-                borderRadius: '8px !important',
+                borderRadius: '6px !important',
                 boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
                 '&:before': {
                   display: 'none',
                   fontSize: '18px',
+
                 },
                 '&.Mui-expanded': {
-                  margin: '0 0 16px 0',
+                  margin: '0 0 10px 0',
                 },
+                fontWeight: 'Normal',
               }}
             >
               <AccordionSummary
                 expandIcon={
                   expanded === `panel${index}` ? (
-                    <FaMinus size={24} color="white" />
+                    <FaMinus size={18} color="white" />
                   ) : (
-                    <FaPlus size={24} color="white" />
+                    <FaPlus size={18} color="white" />
                   )
                 }
                 sx={{
-                  padding: '16px 24px',
+                  padding: '16px 18px',
                   '&:hover': {
                     background: 'var(--primary2)',
                   },

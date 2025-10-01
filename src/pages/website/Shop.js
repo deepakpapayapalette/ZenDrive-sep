@@ -8,6 +8,7 @@ import product4 from '../../assets/images/website/shop/product4.png'
 import product5 from '../../assets/images/website/shop/product5.png'
 import product6 from '../../assets/images/website/shop/product6.png'
 import ShopCard from '../../UI/ShopCard'
+import { NavLink } from 'react-router-dom'
 
 const Shop = () => {
   const bannerContent = {
@@ -127,7 +128,11 @@ const Shop = () => {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {shopProducts.map((item) => (
-              <ShopCard item={item} key={item.id} />
+
+              <NavLink to={`/shop/${item.id}`} key={item.id} state={item} >
+                <ShopCard item={item} />
+              </NavLink>
+
             ))}
 
           </div>

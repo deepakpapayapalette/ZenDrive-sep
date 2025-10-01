@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Droplet, HeartPulse } from "lucide-react";
 import { FaLungs } from 'react-icons/fa';
-const DonationCard = ({ buttonText, description, title, icon, iconBg }) => {
+import RegisterPledgePopup from '../components/website/Modals/RegisterPledgePopup';
+const DonationCard = ({ id, buttonText, description, title, icon, iconBg }) => {
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  }
   return (
     <>
       <div className="bg-white theme-shadow rounded-xl p-6 sm:p-8">
@@ -16,10 +26,21 @@ const DonationCard = ({ buttonText, description, title, icon, iconBg }) => {
         <p className="text-sm sm:text-lg text-gray-700 leading-relaxed mb-6">
           {description}
         </p>
-        <button className="bg-primary text-white px-5 py-3 rounded-lg font-medium hover:bg-[var(--primary2)] transition-colors">
+        <button
+          onClick={openModal} className="bg-primary text-white px-5 py-3 rounded-lg font-medium hover:bg-[var(--primary2)] transition-colors">
           {buttonText}
         </button>
       </div>
+
+      {/* ==============RegisterPledgePopup Modal================= */}
+      {modalOpen && (
+        <RegisterPledgePopup
+          isOpen={modalOpen}
+          onClose={closeModal}
+          itemData={id || title || 'NA'}
+
+        />)
+      }
     </>
   )
 }

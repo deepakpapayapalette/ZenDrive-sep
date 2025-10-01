@@ -5,12 +5,13 @@ import Banner from '../../UI/Banner';
 import { IoMdSend } from "react-icons/io";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import FAQSection from '../../components/website/contact/FAQSection';
-
+import { useFormik } from 'formik'
+import * as Yup from 'yup';
 const ContactUs = () => {
   const bannerContent = {
     image: image,
-    title: "Shop",
-    description: " Discover safety gear, awareness kits, and smart tools that support our mission — every purchase helps make roads safer."
+    title: "Contact Us",
+    description: "We’d love to hear from you! Whether you want to collaborate, contribute, or simply learn more, feel free to reach out."
   }
 
   // const faqs = [
@@ -36,7 +37,36 @@ const ContactUs = () => {
   //   }
   // ];
 
+  const socialLinks = [
+    { icon: <FaLinkedinIn size={18} />, href: '#', label: 'Linkedin' },
+    { icon: <FaFacebookF size={18} />, href: '#', label: 'Facbook' },
+    { icon: <FaInstagram size={18} />, href: '#', label: 'Instagram' },
+    { icon: <FaTwitter size={18} />, href: '#', label: 'Twitter' },
+    { icon: <FaYoutube size={18} />, href: '#', label: 'Youtube' },
+  ];
+  const userSchema = Yup.object({
+    username: Yup.string().min(3).max(30).required('Username is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    phone: Yup.number().min(10).max(10).required('Phone number is required'),
+    message: Yup.string().required('Message is required'),
+  });
 
+
+
+  const initialValues = {
+    username: '',
+    email: '',
+    phone: '',
+    message: '',
+  };
+
+  const { handleSubmit, values, handleChange, errors, touched, handleBlur } = useFormik({
+    validationSchema: userSchema,
+    initialValues: initialValues,
+    onSubmit: (values) => {
+      console.log(values)
+    }
+  })
 
   return (
     <>
@@ -77,12 +107,19 @@ const ContactUs = () => {
               {/* Social Links */}
               <div className="bg-gray-100 rounded-lg p-5">
                 <h3 className="font-semibold text-lg mb-3">Follow Us</h3>
-                <div className="flex space-x-5 text-gray-600">
-                  <a href="#"><FaLinkedinIn className="hover:text-teal-600" /></a>
-                  <a href="#"><FaInstagram className="hover:text-teal-600" /></a>
-                  <a href="#"><FaFacebookF className="hover:text-teal-600" /></a>
-                  <a href="#"><FaTwitter className="hover:text-teal-600" /></a>
-                  <a href="#"><FaYoutube className="hover:text-teal-600" /></a>
+                <div className="flex space-x-5 text-gray-600 flex-wrap">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.href}
+                      className="w-9 h-9 bg-gray-400 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-200"
+                      aria-label={social.label}
+                    >
+                      <span className='text-white'>
+                        {social.icon}
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -94,27 +131,59 @@ const ContactUs = () => {
               </h2>
               <p className="text-gray-600 mb-6">We’d love to hear you</p>
 
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <input
+                  onChange={handleChange}
+                  value={values.username}
+                  onBlur={handleBlur}
+                  name="username"
                   type="text"
                   placeholder="Full Name"
-                  className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                />
+                  className={`w-full border rounded-md px-4 py-2 focus:outline-none ${errors.username && touched.username ? 'border-red-500' : ''}`}
+                /> <br />
+                {errors.username && touched.username ?
+                  <p className="text-red-600 text-xs">{errors.username}</p>
+                  : null
+                }
                 <input
+                  onChange={handleChange}
+                  value={values.email}
+                  name='email'
                   type="email"
                   placeholder="Email Address"
-                  className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                />
+                  onBlur={handleBlur}
+                  className={`w-full border rounded-md px-4 py-2 focus:outline-none   ${errors.email && touched.email ? 'border-red-500' : ''}`}
+                /> <br />
+                {errors.email && touched.email ?
+                  <p className="text-red-600 text-xs">{errors.email}</p>
+                  : null
+                }
                 <input
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.phone}
+                  name='phone'
                   type="text"
                   placeholder="Phone No"
-                  className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                />
+                  className={`w-full border rounded-md px-4 py-2 focus:outline-none ${errors.phone && touched.phone ? 'border-red-500' : ''}`}
+                /><br />
+                {errors.phone && touched.phone ?
+                  <p className="text-red-600 text-xs">{errors.phone}</p>
+                  : null
+                }
                 <textarea
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.message}
+                  name='message'
                   placeholder="Message"
                   rows="4"
-                  className="w-full border rounded-md px-4 py-2 focus:outline-none focus:ring-1 focus:ring-primary"
-                ></textarea>
+                  className={`w-full border rounded-md px-4 py-2 focus:outline-none  ${errors.message && touched.message ? 'border-red-500' : ''}`}
+                ></textarea><br />
+                {errors.message && touched.message ?
+                  <p className="text-red-600 text-xs">{errors.message}</p>
+                  : null
+                }
                 <button
                   type="submit"
                   className="flex items-center justify-center gap-2 bg-primary text-white px-6 py-2 rounded-md hover:bg-[var(--primary2)] transition"
@@ -129,8 +198,6 @@ const ContactUs = () => {
       </section>
 
       <FAQSection />
-
-
     </>
   )
 }

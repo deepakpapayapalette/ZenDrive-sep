@@ -93,6 +93,7 @@ export default function TakeTheLife() {
             OrgansDonationData.map((item) => (
               <DonationCard
                 key={item.id}
+                id={item.id}
                 title={item.title}
                 description={item.description}
                 buttonText={item.buttonText}

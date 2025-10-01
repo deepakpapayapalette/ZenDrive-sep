@@ -1,130 +1,99 @@
 import React, { useState, useRef, useEffect } from 'react';
-import cmImage from '../../../assets/images/website/cm-image.png'
 import leader2 from '../../../assets/images/website/cm-image.png'
 import leader1 from '../../../assets/images/website/leader2.png'
 import leader3 from '../../../assets/images/website/leader3.png'
 import audio1 from '../../../assets/videos/audio.mp3'
-import Carousel from "react-multi-carousel";
-import LeadersMessage from '../../../UI/LeadersMessage';
-import LeadersMessage2 from '../../../UI/LeadersMessage2';
+import LeadersMessage from '../../../UI/LeadersMessage'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 // Audio control icons
-const PlayIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <polygon points="5,3 19,12 5,21" />
-  </svg>
-);
+// const PlayIcon = () => (
+//   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+//     <polygon points="5,3 19,12 5,21" />
+//   </svg>
+// );
 
-const PauseIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <rect x="6" y="4" width="4" height="16" />
-    <rect x="14" y="4" width="4" height="16" />
-  </svg>
-);
+// const PauseIcon = () => (
+//   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+//     <rect x="6" y="4" width="4" height="16" />
+//     <rect x="14" y="4" width="4" height="16" />
+//   </svg>
+// );
 
-const VolumeIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" />
-    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
-  </svg>
-);
+// const VolumeIcon = () => (
+//   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+//     <polygon points="11,5 6,9 2,9 2,15 6,15 11,19" />
+//     <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+//   </svg>
+// );
 
-const MoreIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-    <circle cx="12" cy="12" r="2" />
-    <circle cx="12" cy="4" r="2" />
-    <circle cx="12" cy="20" r="2" />
-  </svg>
-);
+// const MoreIcon = () => (
+//   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+//     <circle cx="12" cy="12" r="2" />
+//     <circle cx="12" cy="4" r="2" />
+//     <circle cx="12" cy="20" r="2" />
+//   </svg>
+// );
 
 export default function LeadersMessageRoadSafety() {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(1232); // 20:32 in seconds
-  const [activeSlide, setActiveSlide] = useState(0);
-  const audioRef = useRef(null);
+  // const [isPlaying, setIsPlaying] = useState(false);
+  // const [currentTime, setCurrentTime] = useState(0);
+  // const [activeSlide, setActiveSlide] = useState(0);
+  // const audioRef = useRef(null);
+  // const [duration, setDuration] = useState(1232);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    fade: false,
-    autoplay: false,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false,
-  };
+
   // Format time display
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
+  // const formatTime = (seconds) => {
+  //   const mins = Math.floor(seconds / 60);
+  //   const secs = Math.floor(seconds % 60);
+  //   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  // };
 
   // Toggle play/pause
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    // In a real implementation, you'd control actual audio playback here
-  };
+  // const togglePlayPause = () => {
+  //   setIsPlaying(!isPlaying);
+  //   // In a real implementation, you'd control actual audio playback here
+  // };
 
   // Progress bar click handler
-  const handleProgressClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const newTime = (clickX / rect.width) * duration;
-    setCurrentTime(newTime);
-  };
+
+  // const handleProgressClick = (e) => {
+  //   const rect = e.currentTarget.getBoundingClientRect();
+  //   const clickX = e.clientX - rect.left;
+  //   const newTime = (clickX / rect.width) * duration;
+  //   setCurrentTime(newTime);
+  // };
 
   // Simulate audio progress (for demo purposes)
-  useEffect(() => {
-    let interval;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setCurrentTime(prev => {
-          if (prev >= duration) {
-            setIsPlaying(false);
-            return 0;
-          }
-          return prev + 1;
-        });
-      }, 1000);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, duration]);
 
-  const progress = (currentTime / duration) * 100;
+  // useEffect(() => {
+  //   let interval;
+  //   if (isPlaying) {
+  //     interval = setInterval(() => {
+  //       setCurrentTime(prev => {
+  //         if (prev >= duration) {
+  //           setIsPlaying(false);
+  //           return 0;
+  //         }
+  //         return prev + 1;
+  //       });
+  //     }, 1000);
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [isPlaying, duration]);
 
-  const responsive = {
-    superLargeDesktop: {
-      breakpoint: { max: 4000, min: 3000 },
-      items: 1
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 1,
-      partialVisibilityGutter: 0
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 767 },
-      items: 1
-    },
-    mobile: {
-      breakpoint: { max: 767, min: 0 },
-      items: 1,
+  // const progress = (currentTime / duration) * 100;
 
-    }
-  };
+
 
   const roadSafetyMessages = [
     {
       id: 1,
       title: "Prime Minister Narendra Modi’s Message on Road Safety",
-      description: "In his monthly radio program, Mann Ki Baat, Prime Minister Narendra Modi emphasized the critical importance of road safety, urging citizens to become \"active stakeholders\" in road safety activities to save lives. He highlighted that road crashes had become a global concern, with at least one out of every ten people killed on roads worldwide being from India, according to the World Health Organization.",
+      description: "In a recent public address, the nation’s leader issued a powerful and heartfelt appeal for a collective national effort to make the country's roads safer. Speaking directly to the people, he framed road safety not as a matter of mere rules and regulations, but as a fundamental social responsibility and a moral imperative for every citizen. He stressed that the goal of reducing accidents and saving precious lives cannot be achieved by government action alone; it requires every individual to become a conscious and committed participant in this mission. The leader presented a sobering global context, citing alarming statistics that underscore the urgency of the issue.He revealed that road traffic injuries have emerged as one of the leading causes of death and disability worldwide, affecting millions of families and imposing a significant economic burden on nations.With a tone of grave concern, he pointed out that despite having a fraction of the world's vehicles, our country bears a disproportionately high share of the global toll in road crash fatalities. ",
       image: leader1,
       audio: {
         hasAudio: true,
@@ -168,6 +137,19 @@ export default function LeadersMessageRoadSafety() {
       audio1: audio1,
     }
   ];
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: false,
+    autoplay: false,
+    autoplaySpeed: 4000,
+    pauseOnHover: true,
+    arrows: false,
+  };
 
   return (
     <section className="space-top relative ">
@@ -264,8 +246,10 @@ export default function LeadersMessageRoadSafety() {
                     </button>
                   </div>
                 </div> */}
+                  <div className='mb-5'>
 
-                  <LeadersMessage src={message.audio1} />
+                    <LeadersMessage src={message.audio1} />
+                  </div>
                   {/* <LeadersMessage2 src={message.audio1} /> */}
                 </div>
               </div>
