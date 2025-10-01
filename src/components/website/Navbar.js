@@ -19,7 +19,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-white shadow-sm border-b border-gray-200 py-2">
+    <nav className="bg-white shadow-sm border-b border-gray-200 py-2 sticky top-0 z-50">
       <div className="container">
         <div className=" mx-auto ">
           <div className="flex justify-between items-center h-16">
@@ -38,7 +38,7 @@ const Navbar = () => {
                   </NavLink>
                 ))}
 
-                    {/* <NavLink
+                {/* <NavLink
                      to={'/about'}
                       className="text-gray-700 hover:text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
                       onClick={() => setIsMenuOpen(false)}
@@ -96,16 +96,16 @@ const Navbar = () => {
           }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
             {/* {navLinksData.map((link) => ( */}
-                   {navLinksData.map((link) => (
-                  <NavLink
-                    key={link.name}
-                    to={link.href}
-                    className="text-gray-700 hover:text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </NavLink>
-                ))}
+            {navLinksData.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.href}
+                className="text-gray-700 hover:text-gray-900 hover:bg-gray-100 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </NavLink>
+            ))}
 
             {/* Mobile Auth Buttons */}
             <div className="pt-4 pb-2 space-y-2">
