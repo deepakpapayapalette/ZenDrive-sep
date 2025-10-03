@@ -1,12 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { X } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber }) => {
+const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber,
+
+  formType, setFormType
+
+}) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
 
-  if (!isOpen) return null;
 
+  // const navitage = useNavigate();
+  const [timer, setTimer] = useState(20);
+
+
+
+  if (!isOpen) return null;
   const handleOtpChange = (index, value) => {
     // Only allow digits
     if (!/^\d*$/.test(value)) return;
@@ -37,6 +47,16 @@ const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber }) => {
     } else {
       alert("Please enter complete 4-digit OTP");
     }
+  };
+
+  const handleResendOTP = () => {
+    setTimer(20);
+
+    // setOtp(['', '', '', '']);
+    // inputRefs.current[0]?.focus();
+    // setIsResendAvailable(false);
+
+    alert('New OTP sent!');
   };
 
   return (
@@ -81,12 +101,14 @@ const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber }) => {
           onClick={handleValidateOTP}
           className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors"
         >
-          Validate OTP
+          <NavLink to={`#`}>
+            Validate OTP
+          </NavLink>
         </button>
 
         {/* Resend OTP Link */}
         <div className="text-center mt-4">
-          <button className="text-primary text-sm hover:underline">
+          <button className="text-primary text-sm hover:underline" onClick={handleResendOTP}>
             Resend OTP
           </button>
         </div>

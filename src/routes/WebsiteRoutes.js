@@ -8,6 +8,8 @@ import Shop from '../pages/website/Shop'
 import ContactUs from '../pages/website/ContactUs'
 import ProductDetailPage from '../pages/website/ProductDetailPage'
 import ShoppingCartCheckout from '../pages/website/ShoppingCartCheckout'
+import OrganDonationForm from '../components/website/LandingPage/OrganDonationForm'
+import BloodDonationForm from '../components/website/LandingPage/BloodDonationForm'
 
 const WebsiteRoutes = () => {
   return (
@@ -20,11 +22,9 @@ const WebsiteRoutes = () => {
         <Route path="shop/:id" element={<ProductDetailPage />} />
         <Route path="contact" element={<ContactUs />} />
         <Route path="checkout" element={<ShoppingCartCheckout />} />
-        {/* <Route path="landing-page" element={<LandingPage />} /> */}
-
-
-        {/* Catch-all inside admin */}
         <Route path="*" element={<ErrorPage />} />
+        <Route path="organ-form" element={<OrganDonationForm />} />
+        <Route path="blood-form" element={<BloodDonationForm />} />
 
       </Routes >
     </>

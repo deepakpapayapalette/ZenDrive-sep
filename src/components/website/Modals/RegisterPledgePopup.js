@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { X } from "lucide-react";
 import OTPVerificationPopup from "./OTPVerificationPopup";
 
-const RegisterPledgePopup = ({ isOpen, onClose, itemData }) => {
+const RegisterPledgePopup = ({ isOpen, onClose, itemData, formType, setFormType, formTypeValue }) => {
   const [selectedOption, setSelectedOption] = useState("aadhaar");
   const [aadhaar, setAadhaar] = useState("");
   const [isChecked, setIsChecked] = useState(true);
   const [isOtpModalOpen, setIsOtpModalOpen] = useState(false);
 
+
+
+
   const handleGenerateOTP = () => {
+
     if (!aadhaar.trim()) {
       alert(`Please enter ${selectedOption === "aadhaar" ? "Aadhaar" : "Mobile"} number first`);
       return;
@@ -25,30 +29,25 @@ const RegisterPledgePopup = ({ isOpen, onClose, itemData }) => {
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50">
       <div className="bg-white w-full max-w-[800px] rounded-lg shadow-lg p-6 relative overflow-y-auto max-h-[90vh]">
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
         >
           <X size={20} />
         </button>
-        {/* <p>{itemData}</p> */}
-
-        {/* Header */}
+        <i>{formTypeValue}</i>
         <h2 className="text-3xl font-semibold text-primary mb-2">
           Register to Pledge
         </h2>
         <p className="text-sm text-gray-600 mb-4">
-          FORM 7 FOR ORGAN OR TISSUE PLEDGING (To be filled by individual of age
-          18 year or above) [See rule 5(4)(a), THOTA 1994 with The
-          transplantation of Human Organs and Tissues Rules,2014]
+          Form 7 for organ or tissue pledging (To be filled by individual of age
+          18 year or above) [See rule 5(4) (a), THOTA 1994 with The
+          transplantation of Human Organs and Tissues Rules, 2014]
         </p>
-
         {/* Identity Details */}
         <h3 className="text-lg font-semibold mb-2 text-gray-900">
           Identity Details
         </h3>
-
         <div className="flex gap-4 mb-4">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -71,8 +70,7 @@ const RegisterPledgePopup = ({ isOpen, onClose, itemData }) => {
               onChange={() => setSelectedOption("mobile")}
               className="accent-primary"
             />
-            Mobile Number (linked to{" "}
-            <span className="text-primary font-medium">ABHA</span> )*
+            Mobile Number (linked to <spanx className="text-primary">ABHA</spanx>)*
           </label>
         </div>
 
@@ -93,7 +91,7 @@ const RegisterPledgePopup = ({ isOpen, onClose, itemData }) => {
               }
               className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
             />
-            <button 
+            <button
               onClick={handleGenerateOTP}
               className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark"
             >
@@ -131,21 +129,27 @@ const RegisterPledgePopup = ({ isOpen, onClose, itemData }) => {
         {/* Submit */}
         <button
           disabled={!isChecked}
-          className={`w-full py-2 rounded-lg font-semibold text-white ${isChecked
-            ? "bg-primary hover:bg-primary-dark"
+          className={` py-2 rounded-md sm:min-w-[200px] min-w-[150px]  text-white ${isChecked
+            ? "bg-primary hover:bg-[var(--primary2)] transition-colors cursor-pointer"
             : "bg-gray-400 cursor-not-allowed"
             }`}
+
+          onClick={() => setFormType('')}
         >
           Submit
         </button>
       </div>
-      
+
       {/* OTP Verification Modal */}
-      <OTPVerificationPopup 
+      <OTPVerificationPopup
         isOpen={isOtpModalOpen}
         onClose={handleCloseOTPModal}
         phoneNumber={selectedOption === "mobile" ? aadhaar : "registered mobile number"}
+        formType={formType}
+        setFormType={setFormType}
       />
+
+
     </div>
   );
 };
