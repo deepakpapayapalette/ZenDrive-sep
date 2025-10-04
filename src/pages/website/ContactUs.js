@@ -112,7 +112,7 @@ const ContactUs = () => {
                     <a
                       key={index}
                       href={social.href}
-                      className="w-9 h-9 bg-gray-400 hover:bg-primary rounded-full flex items-center justify-center transition-colors duration-200"
+                      className="w-9 h-9 bg-primary hover:bg-[var(--primary2)] text-primary rounded-full flex items-center justify-center transition-colors duration-200"
                       aria-label={social.label}
                     >
                       <span className='text-white'>
@@ -159,6 +159,8 @@ const ContactUs = () => {
                   : null
                 }
                 <input
+                  // allow only 10 digits
+                  maxLength={10}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.phone}

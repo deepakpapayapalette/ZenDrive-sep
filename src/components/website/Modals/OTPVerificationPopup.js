@@ -3,18 +3,17 @@ import { X } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber,
-
-  formType, setFormType
+  formTypeValue
 
 }) => {
   const [otp, setOtp] = useState(["", "", "", ""]);
   const inputRefs = [useRef(), useRef(), useRef(), useRef()];
 
 
-  // const navitage = useNavigate();
+  const navitage = useNavigate();
   const [timer, setTimer] = useState(20);
 
-
+  console.log(phoneNumber, "phoneNumber");
 
   if (!isOpen) return null;
   const handleOtpChange = (index, value) => {
@@ -42,6 +41,9 @@ const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber,
     if (otpString.length === 4) {
       // Here you would typically validate the OTP with your backend
       console.log("Validating OTP:", otpString);
+      alert("OTP Validated Successfully!");
+      navitage(`/${formTypeValue}`);
+
       // For demo purposes, we'll just close the modal
       onClose();
     } else {
@@ -50,13 +52,27 @@ const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber,
   };
 
   const handleResendOTP = () => {
+    const interval = setInterval(() => {
+      setTimer((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+        return prev - 1;
+      });
+
+    }
+      , 1000);
+
+    console.log("Resending OTP to:", phoneNumber);
     setTimer(20);
+
 
     // setOtp(['', '', '', '']);
     // inputRefs.current[0]?.focus();
     // setIsResendAvailable(false);
 
-    alert('New OTP sent!');
+    // alert('New OTP sent to:', phoneNumber);
   };
 
   return (
@@ -108,10 +124,18 @@ const OTPVerificationPopup = ({ isOpen, onClose, phoneNumber,
 
         {/* Resend OTP Link */}
         <div className="text-center mt-4">
-          <button className="text-primary text-sm hover:underline" onClick={handleResendOTP}>
+          <button className={` text-sm hover:underline ${timer > 0 ? 'cursor-not-allowed text-gray-400' : 'cursor-pointer text-primary'}`
+          } onClick={handleResendOTP}
+            disabled={timer > 0}
+          >
             Resend OTP
           </button>
         </div>
+        {timer > 0 && (
+          <p className="text-center text-sm text-gray-800 mt-2">
+            You can resend OTP in <span className="font-semibold text-primary"> {timer}</span>  seconds
+          </p>
+        )}
       </div>
     </div>
   );

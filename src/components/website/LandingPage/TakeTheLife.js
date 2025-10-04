@@ -19,16 +19,16 @@ export default function TakeTheLife() {
       buttonText: "Pledge for Blood Donation",
       icon: <FaDroplet size={28} />,
       iconBg: "bg-gray-100  text-red-600",
-      formTypeValue: 'blood'
+      formTypeValue: 'blood-form'
     },
     {
       id: 2,
       title: "Donate Organs, Give a Second Life",
       description: "Thousands of people die every year waiting for organs. In India,  approximately 5 lakh (500,000) lives are lost annually due to organ shortage. Take the pledge to donate organs and create miracles for those in need.",
-      buttonText: "Pledge for Blood Donation",
+      buttonText: "Pledge for Donate Organs",
       icon: <FaLungs size={28} />,
       iconBg: "bg-gray-100 text-primary ",
-      formTypeValue: 'organ'
+      formTypeValue: 'organ-form'
     },
 
   ]

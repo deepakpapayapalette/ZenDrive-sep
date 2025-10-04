@@ -40,8 +40,6 @@ const Banner = () => {
     }
   ]
 
-  console.log(bannerData, "bannerData");
-
   const settings = {
     dots: true,
     infinite: true,
