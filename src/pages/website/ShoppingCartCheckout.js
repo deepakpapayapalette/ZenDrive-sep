@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaShoppingCart, FaPlus, FaMinus, FaTrash } from "react-icons/fa";
+import AddAddressPopup from "../../UI/AddAddressPopup";
 
 const ShoppingCartCheckout = () => {
   const [quantity, setQuantity] = useState(1);
@@ -16,6 +17,7 @@ const ShoppingCartCheckout = () => {
       image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&q=80&w=400",
     },
   ]);
+  console.log(address, "address");
 
   const basePrice = 1724;
   const shippingCharge = 0; // Free shipping in this case
@@ -76,7 +78,9 @@ const ShoppingCartCheckout = () => {
               </div>
               {address && (
                 <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-                  <p className="text-sm text-gray-700">{address}</p>
+                  <p className="text-sm text-gray-700">
+                    <span>{address?.street1}, {address?.street2}, {address?.landmark}, {address?.city}, {address?.state}, {address?.pincode}</span>
+                  </p>
                 </div>
               )}
             </div>
@@ -238,35 +242,38 @@ const ShoppingCartCheckout = () => {
 
       {/* Address Modal */}
       {showAddressModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-4">
-              Enter Your Address
-            </h3>
-            <textarea
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              placeholder="Enter your complete delivery address including house number, street, city, state, and PIN code"
-              className="w-full border-2 border-gray-300 rounded-lg p-4 h-32 resize-none focus:border-primary focus:outline-none"
-            />
-            <div className="flex space-x-3 mt-4">
-              <button
-                onClick={() => {
-                  setShowAddressModal(false);
-                }}
-                className="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
-              >
-                Save Address
-              </button>
-              <button
-                onClick={() => setShowAddressModal(false)}
-                className="flex-1 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 px-6 rounded-lg transition-colors"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
+        // <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+        //   <div className="bg-white rounded-xl max-w-lg w-full p-6 shadow-xl">
+        //     <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+        //       Enter Your Address
+        //     </h3>
+        //     <textarea
+        //       value={address}
+        //       onChange={(e) => setAddress(e.target.value)}
+        //       placeholder="Enter your complete delivery address including house number, street, city, state, and PIN code"
+        //       className="w-full border-2 border-gray-300 rounded-lg p-4 h-32 resize-none focus:border-primary focus:outline-none"
+        //     />
+        //     <div className="flex space-x-3 mt-4">
+        //       <button
+        //         onClick={() => {
+        //           setShowAddressModal(false);
+        //         }}
+        //         className="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+        //       >
+        //         Save Address
+        //       </button>
+        //       <button
+        //         onClick={() => setShowAddressModal(false)}
+        //         className="flex-1 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold py-3 px-6 rounded-lg transition-colors"
+        //       >
+        //         Cancel
+        //       </button>
+        //     </div>
+        //   </div>
+        // </div>
+
+        <AddAddressPopup isOpen={showAddressModal} onClose={() => setShowAddressModal(false)} setAddress={setAddress} />
+
       )}
     </section>
   );

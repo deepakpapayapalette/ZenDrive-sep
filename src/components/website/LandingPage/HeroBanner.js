@@ -59,7 +59,7 @@ const Banner = () => {
         {bannerData.map((banner) => {
           return (
             <div key={banner.id}>
-              <div className={` item w-full h-[90vh] relative `} style={{ backgroundImage: `url(${banner.img})` }}>
+              <div className={` item w-full h-[90vh] relative background `} style={{ backgroundImage: `url(${banner.img})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
                 <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-16 lg:px-24 text-white">
                   <div className="max-w-2xl">

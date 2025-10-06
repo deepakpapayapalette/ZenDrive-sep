@@ -69,7 +69,7 @@ const RoadSafetyProduct = () => {
             Road Safety Products
           </h2>
           <div>
-            <div className="">
+            <div className="flex flex-col">
               <Carousel
                 //   removeArrowOnDeviceType={["tablet", "mobile"]}
                 arrows={false}
@@ -80,7 +80,7 @@ const RoadSafetyProduct = () => {
                 //additionalTransfrom={-20}
                 //  pauseOnHover={false}
                 //  centerMode={false}
-                containerClass=""
+                containerClass="flex flex-col"
                 itemClass="sm:pe-3 "
                 showDots={false}
                 infinite={true}
@@ -90,7 +90,7 @@ const RoadSafetyProduct = () => {
               >
                 {products.map((item, index) => (
                   <div className="w-full mx-auto" key={index}>
-                    <div className="bg-white rounded-xl  border border-gray-300  overflow-hidden hover:theme-shadow transition-shadow duration-300">
+                    <div className="flex flex-col bg-white rounded-xl  border border-gray-300  overflow-hidden hover:theme-shadow transition-shadow duration-300">
                       {/* Product Image Container */}
                       <div className="relative bg-gray-50 p-4">
                         <div className="aspect-square relative">
